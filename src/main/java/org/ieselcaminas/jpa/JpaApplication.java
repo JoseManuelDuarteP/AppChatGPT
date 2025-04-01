@@ -1,18 +1,14 @@
 package org.ieselcaminas.jpa;
 
-
 import org.ieselcaminas.jpa.entity.Coche;
 import org.ieselcaminas.jpa.services.CocheService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @SpringBootApplication
 public class JpaApplication implements CommandLineRunner {
-
-
 
     public static void main(String[] args) {
 		SpringApplication.run(JpaApplication.class, args);
