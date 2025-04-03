@@ -46,4 +46,12 @@ public class Propietario {
     public void setCoches(List<Coche> coches) {
         this.coches = coches;
     }
+
+    @Override
+    public String toString() {
+        return "Propietario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
 }
