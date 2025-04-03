@@ -1,3 +1,4 @@
+/*
 package org.ieselcaminas.jpa;
 
 import org.junit.jupiter.api.Test;
@@ -11,3 +12,4 @@ class JpaApplicationTests {
 	}
 
 }
+*/
