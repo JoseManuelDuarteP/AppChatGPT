@@ -53,6 +53,7 @@ public class CocheController {
             System.out.println("2. Listar coches");
             System.out.println("3. Eliminar coche");
             System.out.println("4. Asignar matrícula");
+            System.out.println("5. Exportar CSV de coches");
             System.out.println("-1. Salir");
 
             opcion = scanner.nextInt();
@@ -83,6 +84,10 @@ public class CocheController {
                 coche.setMatricula(hacerMatricula());
                 cocheService.agregarCoche(coche);
                 System.out.println("Matrícula aleatoria asignada");
+            } else if (opcion == 5) {
+                System.out.println("Nombre del archivo (ej: coches.csv): ");
+                String nombreArchivo = scanner.nextLine();
+                cocheService.exportarCochesACSV(nombreArchivo);
             }
         }
     }
