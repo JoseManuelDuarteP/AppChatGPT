@@ -1,6 +1,7 @@
 package org.ieselcaminas.jpa.services;
 
 
+import org.ieselcaminas.jpa.entity.Modelo;
 import org.ieselcaminas.jpa.entity.Propietario;
 import org.ieselcaminas.jpa.repository.PropietarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,13 @@ public class PropietarioService {
 
     public void eliminarPropietario(Long id) {
         propietarioRepository.deleteById(id);
+    }
+
+    public Propietario encontrarPropietario(Long id) {
+        if (propietarioRepository.findById(id).isPresent()) {
+            return propietarioRepository.findById(id).get();
+        } else {
+            return null;
+        }
     }
 }

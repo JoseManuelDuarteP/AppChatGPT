@@ -12,11 +12,13 @@ public class Coche {
     private String marca;
 
     @ManyToOne
-    @JoinColumn(name = "propietario_id", nullable = false)
+    @JoinColumn(name = "propietario_id")
     private Propietario propietario;
 
-    @OneToMany(mappedBy = "coche", cascade = CascadeType.ALL)
-    private List<Modelo> modelos;
+
+    @ManyToOne
+    @JoinColumn(name = "modelo_id")
+    private Modelo modelo;
 
     @ManyToMany
     @JoinTable(
@@ -24,12 +26,15 @@ public class Coche {
         joinColumns = @JoinColumn(name = "coche_id"),
         inverseJoinColumns = @JoinColumn(name = "color_id")
     )
-
-    public Coche {}
-
-
-
     private List<Color> colores;
+
+    private String matricula;
+
+    public Coche() {}
+    public Coche(String marca) {
+        this.marca = marca;
+    }
+
 
     // Getters y Setters
 
@@ -57,12 +62,12 @@ public class Coche {
         this.propietario = propietario;
     }
 
-    public List<Modelo> getModelos() {
-        return modelos;
+    public Modelo getModelo() {
+        return modelo;
     }
 
-    public void setModelos(List<Modelo> modelos) {
-        this.modelos = modelos;
+    public void setModelo(Modelo modelo) {
+        this.modelo = modelo;
     }
 
     public List<Color> getColores() {
@@ -73,11 +78,16 @@ public class Coche {
         this.colores = colores;
     }
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
     @Override
     public String toString() {
-        return "Coche{" +
-                "id=" + id +
-                ", marca='" + marca + '\'' +
-                '}';
+        return "ID coche: " + this.id + " - Marca: " + this.marca;
     }
 }

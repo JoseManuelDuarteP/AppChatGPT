@@ -1,6 +1,8 @@
 package org.ieselcaminas.jpa.entity;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,8 +13,8 @@ public class Propietario {
     
     private String nombre;
 
-    @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
-    private List<Coche> coches;
+    @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Coche> coches = new ArrayList<>();
 
     // Constructor vacío (necesario para JPA)
     public Propietario() {}
@@ -43,15 +45,12 @@ public class Propietario {
         return coches;
     }
 
-    public void setCoches(List<Coche> coches) {
-        this.coches = coches;
+    public void setCoches(Coche coche) {
+        coches.add(coche);
     }
 
     @Override
     public String toString() {
-        return "Propietario{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return "ID propietario: " + this.id + " - Nombre: " + this.nombre;
     }
 }
