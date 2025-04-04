@@ -64,8 +64,12 @@ public class CocheController {
                 agregar(new Coche(nombre));
             } else if (opcion == 2) {
                 for (Coche coche : cocheService.listarCoches()) {
-                    System.out.println(coche);
-                    System.out.println("\t"+coche.getModelo());
+                    System.out.print(Color.ROJO.getColor());
+                        System.out.println(coche);
+                    System.out.print(Color.RESET.getColor());
+                    System.out.print(Color.VERDE.getColor());
+                        System.out.println("\t"+coche.getModelo());
+                    System.out.print(Color.RESET.getColor());
                 }
             } else if (opcion == 3) {
                 System.out.println("ID de coche a eliminar: ");
